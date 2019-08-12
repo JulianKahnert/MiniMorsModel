@@ -8,8 +8,15 @@
 import Foundation
 
 @available(iOS 10.0, *)
-struct DataPoint: Codable {
-    let time: Date
-    let isDeleted: Bool
-    let data: Data
+public struct DataPoint: Codable, Identifiable {
+    public let id = UUID()
+    public let time: Date
+    public let isDeleted: Bool
+    public let data: DataPoint.Data
+
+    public init(time: Date, isDeleted: Bool, data: DataPoint.Data) {
+        self.time = time
+        self.isDeleted = isDeleted
+        self.data = data
+    }
 }

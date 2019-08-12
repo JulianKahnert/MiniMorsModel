@@ -8,7 +8,7 @@
 import Foundation
 
 extension DataPoint {
-    enum Data {
+    public enum Data {
         case poo(numberTwo: Bool)
         case feeding(Quantity)
         case bodyTemperature(Measurement<UnitTemperature>)
@@ -22,7 +22,7 @@ extension DataPoint.Data: Codable {
     }
 
     @available(iOS 10.0, *)
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let type = try container.decode(String.self, forKey: .type)
         switch type {
@@ -40,7 +40,7 @@ extension DataPoint.Data: Codable {
         }
     }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         switch self {
         case .poo(numberTwo: let payload):

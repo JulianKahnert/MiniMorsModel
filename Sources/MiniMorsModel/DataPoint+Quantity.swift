@@ -8,7 +8,7 @@
 import Foundation
 
 extension DataPoint {
-    enum Quantity: Int, Codable {
+    public enum Quantity: Int, Codable {
         case good
         case normal
         case bad
