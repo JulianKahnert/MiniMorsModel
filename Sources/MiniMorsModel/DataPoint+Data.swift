@@ -1,5 +1,5 @@
 //
-//  MiniMorsModel+Data.swift
+//  DataPoint+Data.swift
 //  
 //
 //  Created by Julian Kahnert on 12.08.19.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension MiniMorsModel {
+extension DataPoint {
     enum Data {
         case poo(numberTwo: Bool)
         case feeding(Quantity)
@@ -15,7 +15,7 @@ extension MiniMorsModel {
     }
 }
 
-extension MiniMorsModel.Data: Codable {
+extension DataPoint.Data: Codable {
     private enum CodingKeys: String, CodingKey {
         case type
         case payload
@@ -30,7 +30,7 @@ extension MiniMorsModel.Data: Codable {
             let payload = try container.decode(Bool.self, forKey: .payload)
             self = .poo(numberTwo: payload)
         case "feeding":
-            let payload = try container.decode(MiniMorsModel.Quantity.self, forKey: .payload)
+            let payload = try container.decode(DataPoint.Quantity.self, forKey: .payload)
             self = .feeding(payload)
         case "bodyTemperature":
             let payload = try container.decode(Measurement<UnitTemperature>.self, forKey: .payload)

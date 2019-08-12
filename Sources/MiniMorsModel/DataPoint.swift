@@ -8,7 +8,7 @@
 import Foundation
 
 @available(iOS 10.0, *)
-struct MiniMorsModel: Codable {
+struct DataPoint: Codable {
     let time: Date
     let isDeleted: Bool
     let data: Data
