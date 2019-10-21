@@ -12,6 +12,7 @@ extension DataPoint {
         case poo(numberTwo: Bool)
         case feeding(SideQuantity)
         case bodyTemperature(Measurement<UnitTemperature>)
+        case weight(Measurement<UnitMass>)
     }
 
     public struct SideQuantity: Codable, Hashable {
@@ -66,6 +67,9 @@ extension DataPoint.Data: Codable {
             try container.encode(payload, forKey: .payload)
         case .bodyTemperature(let payload):
             try container.encode("bodyTemperature", forKey: .type)
+            try container.encode(payload, forKey: .payload)
+        case .weight(let payload):
+            try container.encode("weight", forKey: .type)
             try container.encode(payload, forKey: .payload)
         }
     }
