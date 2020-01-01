@@ -11,12 +11,12 @@ import Foundation
 public struct DataPoint: Codable, Hashable {
 
     public var id: Int?
-    public let timestamp: Date
+    public var timestamp: Date?
     public var isDeleted: Bool
     public var location: DataPoint.Location?
     public let data: DataPoint.Data
 
-    public init(timestamp: Date, isDeleted: Bool, location: DataPoint.Location? = nil, data: DataPoint.Data) {
+    public init(timestamp: Date?, isDeleted: Bool, location: DataPoint.Location? = nil, data: DataPoint.Data) {
         self.timestamp = timestamp
         self.isDeleted = isDeleted
         self.location = location
